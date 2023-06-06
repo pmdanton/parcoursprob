@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #3D566E;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1em;
+            color: #666;
+            text-align: justify;
+        }
+
+        @media (min-width: 600px) {
+            p {
+                width: 50%;
+                margin-top: 0;
+                margin-bottom: 1em;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .return-button {
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin: 20px auto;
+            background-color: #3D566E;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .return-button:hover {
+            background-color: #2c4259;
+        }
+    </style>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+<body>
+    <h2>Comment estimer votre probabilité d'admission ?</h2>
+    <p>
+        Ce site utilise un modèle simple pour estimer la probabilité d'admission. Si votre classement est
+        \(n\) et qu'il y a \(m\) places disponibles dans la formation, alors la probabilité d'admission est la
+        probabilité
+        qu'au
+        plus \(m-1 \) candidats parmi les \(n-1\) mieux classés que vous acceptent l'offre.
+    </p>
+    <p>
+        Pour estimer cette probabilité, on suppose que chaque candidat
+        accepte ou refuse l'offre indépendamment des autres, avec une probabilité commune \(p\) d'accepter (schéma de
+        Bernoulli). Alors, le
+        nombre
+        \(X\) de candidats mieux classés qui vont accepter une offre suit une <a
+            href="https://fr.wikipedia.org/wiki/Loi_binomiale">loi binomiale</a> de paramètres \(n-1\) et
+        \(p\):
+    </p>
+    <p style="text-align:center;">
+        $$ P(X=k) = \binom{n-1}{k} \times p^{k} \times (1-p)^{n-1-k} $$
+    </p>
+    <p>
+        La probabilité d'admission \(A\) correspond à sa fonction de répartition au rang \(m-1\):
+    </p>
+    <p style="text-align:center;">
+        $$ A = P(X \leq m-1) = \sum_{k=0}^{m-1}{\binom{n-1}{k} \times p^{k} \times (1-p)^{n-1-k}} $$
+    </p>
+    <p>
+        Pour estimer la valeur de \(p\), on utilise les données de l'année précédente. On suppose que le
+        nombre de places était le même (\(m\)), que la formation a fait le plein, et que le classement du dernier admis
+        était \(N\): ainsi \(m\) candidats sur \(N\) ont accepté
+        l'offre, et \(p\) est estimé comme \(\frac{m}{N}\). On peut le justifier
+        plus
+        rigoureusement comme un estimateur du <a href="https://fr.wikipedia.org/wiki/Maximum_de_vraisemblance">maximum
+            de vraisemblance</a>
+        (hors-programme en terminale!)
+    </p>
+    <p>
+        Enfin, lorsque le nombre de candidats est assez grand, on utilise le <a
+            href="https://fr.wikipedia.org/wiki/Th%C3%A9or%C3%A8me_de_Moivre-Laplace">théorème de Moivre-Laplace</a>
+        pour
+        approximer la loi binomiale par une loi normale. Cette approximation simplifie les calculs et donne des
+        résultats assez précis.
+    </p>
+    <button class="return-button" onClick="window.location.href='index.html'">Retourner aux résultats</button>
+
+</body>
+
+</html>
