@@ -1,0 +1,23 @@
+{
+  "name": "parcoursprob",
+  "version": "1.0.0",
+  "description": "ParcoursProb est un outil simple qui aide les lycéennes et lycéens à estimer leurs chances d'être accepté(e)s dans une formation via Parcoursup. Il utilise un modèle mathématique pour estimer la probabilité d'admission en fonction du classement de l'élève, du nombre de places disponibles et du classement du dernier candidat ou de la dernière candidate admis(e) l'année précédente.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmdanton/parcoursprob.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pmdanton/parcoursprob/issues"
+  },
+  "homepage": "https://github.com/pmdanton/parcoursprob#readme",
+  "dependencies": {
+    "faunadb": "^4.8.0"
+  }
+}
